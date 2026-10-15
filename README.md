@@ -20,6 +20,7 @@ Click the monitor icon in the menu bar:
 - **Brightness, contrast and volume** as Control Center style sliders.
 - **Picture modes** as swatches: Standard, FPS, RTS/RPG, Movie, Reader, sRGB, Custom 1–3.
 - **Tiles** that open a page for each group of settings: Picture, Gaming, Game Assist, PiP / PbP, Input, Monitor.
+- **Open at Login** checkbox at the bottom of the popover.
 
 All values are read from the monitor when it connects; the main ones are re-read each time the popover opens. Changes are sent,
 read back and retried if the monitor dropped them.

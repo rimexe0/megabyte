@@ -335,6 +335,9 @@ private struct FooterView: View {
             Button("Refresh", systemImage: "arrow.clockwise") { Task { await store.loadAll() } }
                 .disabled(store.isLoading)
             Spacer()
+            Toggle("Open at Login", isOn: Binding(get: { store.opensAtLogin }, set: { store.setOpensAtLogin($0) }))
+                .toggleStyle(.checkbox)
+            Spacer()
             Button("Quit") { NSApplication.shared.terminate(nil) }
                 .keyboardShortcut("q")
         }

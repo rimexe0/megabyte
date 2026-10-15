@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import ServiceManagement
 import SwiftUI
 
 @Observable @MainActor
@@ -22,6 +23,7 @@ final class MonitorStore {
         didSet { UserDefaults.standard.set(feedMacStats, forKey: "feedMacStats"); updateFeed() }
     }
     var timerRunning = false
+    private(set) var opensAtLogin = SMAppService.mainApp.status == .enabled
 
     private let hid = HIDBridge()
     private let link: DDCLink
@@ -101,6 +103,24 @@ final class MonitorStore {
         }
     }
 
+    // MARK: Login item
+
+    func setOpensAtLogin(_ enabled: Bool) {
+        do {
+            if enabled {
+                try SMAppService.mainApp.register()
+            } else {
+                try SMAppService.mainApp.unregister()
+            }
+        } catch {
+            NSLog("Megabyte: login item change failed: \(error.localizedDescription)")
+        }
+        if SMAppService.mainApp.status == .requiresApproval {
+            SMAppService.openSystemSettingsLoginItems()
+        }
+        opensAtLogin = SMAppService.mainApp.status == .enabled
+    }
+
     // MARK: Loading
 
     private func connectionChanged(_ isConnected: Bool) {
@@ -113,6 +133,7 @@ final class MonitorStore {
     }
 
     func refresh() {
+        opensAtLogin = SMAppService.mainApp.status == .enabled
         guard connected, !isLoading else { return }
         loadTask = Task { await reload(Setting.primary) }
     }
