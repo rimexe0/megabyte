@@ -8,6 +8,9 @@ A native macOS menu bar app that controls a **Gigabyte M28U** monitor: everythin
 It talks to the monitor over the USB cable (the monitor's built-in KVM hub), the same way OSD Sidekick does,
 and it can read the current value of every setting, not just write it.
 
+<img width="415" height="623" alt="Screenshot 2026-10-15 at 16 46 10" src="https://github.com/user-attachments/assets/dee9ccf8-393e-4ea4-93ee-2608ba53dcf6" />
+
+
 ## What it does
 
 Click the monitor icon in the menu bar:
