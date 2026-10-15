@@ -1,0 +1,10 @@
+.DS_Store
+.build/
+build/
+*.zip
+
+# Gigabyte's installer, extracted binaries and decompiled source stay local.
+OSD_Sidekick*/
+re/*
+!re/PROTOCOL.md
+!re/tools/
