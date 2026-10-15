@@ -135,4 +135,8 @@ differ per model.
   `E0` code table for the M32U over DDC/CI.
 - [WildFireFlum/gbmonitor](https://github.com/WildFireFlum/gbmonitor): Python port of gbmonctl.
 
+## License
+
+[MIT](LICENSE): do whatever you want with it, just keep the copyright notice with my name in copies of the code.
+
 Not affiliated with or endorsed by Gigabyte. No Gigabyte code or binaries are included in this repository.
