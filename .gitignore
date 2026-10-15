@@ -8,3 +8,7 @@ OSD_Sidekick*/
 re/*
 !re/PROTOCOL.md
 !re/tools/
+
+# Icon drafts; only the generator is kept.
+icons/*
+!icons/m28u-icon.swift
